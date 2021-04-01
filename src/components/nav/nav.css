@@ -1,0 +1,23 @@
+header.container{
+    margin-top: 15px;
+    background-color: #41256F;
+    border-radius: 15px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 10000000000000000000000000000000000000000000000;
+}
+
+.header_img-container{
+}
+
+.header_img-container img{
+    width: 110%;
+}
+
+.nav-link{
+    color: #fff;
+}
+.nav-link:hover{
+    color: #ccc;
+}
