@@ -4,11 +4,11 @@ import Map from './Map';
 import './contact.css'
 
 
-const Social = () =>{
+const Social = (props) =>{
     return(
         <li>
             <a href="#">
-                <i class="fab fa-instagram"></i>
+                <i class={props.icon}></i>
             </a>
         </li>
     )
@@ -17,13 +17,19 @@ const Social = () =>{
 const Contact = () => {
     return (
         <div className="contact-container">
-            <Title/>
+            <Title titleText="Contacto"/>
             <ul className="social-container">
-                <Social/>
-                <Social/>
-                <Social/>
+                <Social
+                    icon="fab fa-facebook-f"
+                />
+                <Social
+                    icon="fab fa-whatsapp"
+                />
+                <Social
+                    icon="fab fa-instagram"
+                />
             </ul>
-            <Map/> 
+            <Map/>
         </div>
     );
 };

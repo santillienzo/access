@@ -52,7 +52,7 @@ const Product = () => {
         <div>
             <ProdPrincipal/>
             <div className="productos-container">
-                <Title/>
+                <Title titleText="Productos"/>
                 <Producto/>
             </div>
         </div>
