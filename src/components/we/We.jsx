@@ -1,4 +1,5 @@
 import React from 'react';
+import Title from '../1-microComponents/title/Title'
 
 import './we.css'
 
@@ -21,6 +22,7 @@ const Hexagon = () =>{
 const We = () => {
     return (
         <div>
+            <Title/>
             <div className="hexagon-container">
                 <Hexagon/>
                 <Hexagon/>

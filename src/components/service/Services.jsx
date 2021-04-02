@@ -1,4 +1,5 @@
 import React from 'react';
+import Title from '../1-microComponents/title/Title'
 
 import './services.css'
 import software from '../../assets/service/software.png'
@@ -23,6 +24,7 @@ const Service = () =>{
 const Services = () => {
     return (
         <div>
+            <Title/>
             <div className="services-container">
                 <Service/>
                 <Service/>
