@@ -1,7 +1,7 @@
 import React from 'react';
-
-
+import Map from './Map';
 import './contact.css'
+
 
 const Social = () =>{
     return(
@@ -11,7 +11,7 @@ const Social = () =>{
             </a>
         </li>
     )
-}   
+}
 
 const Contact = () => {
     return (
@@ -21,6 +21,7 @@ const Contact = () => {
                 <Social/>
                 <Social/>
             </ul>
+            <Map/> 
         </div>
     );
 };
