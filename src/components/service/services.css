@@ -1,14 +1,16 @@
+
 .services-container{
     display: flex;
     justify-content: center;
     align-items: center;
     max-width: 100vw;
+    margin-top: 35px;
 }
 
 
 .service-container{
     width: 250px;
-    margin: 0 15px;
+    margin: 0 45px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,8 +21,6 @@
     height: 150px;
     display: flex;
     justify-content: center;
-    border: 1px solid #000;
-    border-radius: 50%;
     padding: 15px;
 }
 

@@ -5,6 +5,7 @@ import Home from './components/home/Home'
 import We from './components/we/We'
 import Services from './components/service/Services'
 import Contact from './components/contact/Contact'
+import Location from './components/contact/Location'
 import Product from './components/productos/Product'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -27,6 +28,7 @@ function App() {
             <We/>
             <Services/>
             <Contact/>
+            <Location/>
           </Route>
           
           <Route path="/productos">

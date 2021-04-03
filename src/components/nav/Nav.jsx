@@ -17,22 +17,22 @@ const Nav = () => {
                 <div className="col-11">
                     <ul className="nav justify-content-end">
                         <li className="nav-item">
-                            <Link to="/" className="nav-link" aria-current="page" href="#">Inicio</Link>
+                            <Link to="/" className="nav-link" aria-current="page">Inicio</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/#nosotros" className="nav-link" href="#">Nosotros</Link>
+                            <Link to="/#nosotros" className="nav-link">Nosotros</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/#servicios" className="nav-link" href="#">Servicios</Link>
+                            <Link to="/#servicios" className="nav-link">Servicios</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/productos" className="nav-link" href="#">Productos</Link>
+                            <Link to="/productos" className="nav-link">Productos</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/#contacto" className="nav-link" href="#">Contacto</Link>
+                            <Link to="/#contacto" className="nav-link">Contacto</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/noticias" className="nav-link" href="#">Noticias</Link>
+                            <Link to="/noticias" className="nav-link">Noticias</Link>
                         </li>
                     </ul>
                 </div>

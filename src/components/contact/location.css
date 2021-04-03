@@ -1,0 +1,12 @@
+.map-container{
+    width: min-content;
+    margin: auto;
+}
+
+.map-container select{
+    margin-bottom: 10px;
+}
+
+.map-text{
+    font-weight: bold;
+}

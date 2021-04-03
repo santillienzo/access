@@ -4,21 +4,32 @@ import GoogleMaps from 'simple-react-google-maps';
 import crendentials from '../../config/credentials'
 let key = crendentials.mapskey;
 
-const Map = () => {
+const Map = (props) => {
+
+    const latitud = parseFloat(props.latitud)
+    const longitud = parseFloat(props.longitud)
+
     return (
         <div>
             <GoogleMaps
                 apiKey={key}
-                style={{height: "400px", width:"300px"}}
+                style={{
+                    display: "block",
+                    margin:"auto",
+                    marginBottom:"25px",
+                    position: "relative",
+                    height: "500px",
+                    width:"500px"
+                    }}
                 zoom={15}
                 center={{
-                    lat: -33.08589562050442,
-                    lng: -68.47415517625076
+                    lat: latitud,
+                    lng: longitud
                 }}
                 markers={[
                     {
-                    lat: -33.08589562050442,
-                    lng: -68.47415517625076
+                    lat: latitud,
+                    lng: longitud
                     }
                 ]}
             />

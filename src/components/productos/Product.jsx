@@ -31,13 +31,14 @@ const ProdPrincipal = () =>{
 
 const Producto = () => {
     return(
-        <div className="container">
-            <div class="card" >
-                <img src={pcGamer} class="card-img-top" alt="..." />
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div className="producto">
+            <div className="card" >
+                <img src={pcGamer} className="card-img-top img-carta" alt="..." />
+                <div className="card-body">
+                    <h5 className="card-title">NOGA STORMER</h5>
+                    <p className="card-text texto-carta">Poderoso Gabinete Gamer con 3 Coolers con LEDS rojos.</p>
+                    <a href="#" className="btn btn-primary">Encargar</a>
+                    <p className="pricing_card ">$95.000</p>
                 </div>
             </div>
         </div>
@@ -53,7 +54,27 @@ const Product = () => {
             <ProdPrincipal/>
             <div className="productos-container">
                 <Title titleText="Productos"/>
-                <Producto/>
+                <div className="stock-container">
+                    <select className="form-select">
+                        <option>Todo</option>
+                        <option>Pc</option>
+                        <option>Impresoras</option>
+                        <option>Video proyectores</option>
+                        <option>Equipos de sonido</option>
+                        <option>Cc tv</option>
+                        <option>Notebooks | Netbooks</option>
+                        <option>Monitores</option>
+                        <option>Conectividad</option>
+                        <option>Almacenamiento</option>
+                        <option>Tintas</option>
+                        <option>Accesorios</option>
+                    </select>
+                    <div className="tabla-productos">
+                        <Producto/>
+                        <Producto/>
+                        <Producto/>
+                    </div>
+                </div>
             </div>
         </div>
     );

@@ -60,10 +60,54 @@
     position: relative;
 }
 
-
+.stock-container{
+    width: 80%;
+    margin: auto;
+    margin-top: 35px;
+}
+.stock-container select{
+    margin-left: 45px;
+    margin-bottom: 15px;
+    width: min-content;
+}
 
 /*Productos*/
+.tabla-productos{
+    display: table;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+.producto{
+    display: inline-table;
+}
 
 .card{
     width: 18rem;
+    max-width: 350px;
+    margin: 0 15px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.img-carta{
+    max-width: 75%;
+    margin: auto;
+}
+
+.texto-carta{
+    min-height: 75px;
+    max-height: 75px;
+}
+
+.pricing_card{
+    display: inline-block;
+    background-color: #D1E7DD;
+    color: #0F5132;
+    padding: 6px 1px;
+    border: 1px solid #BADBCC;
+    border-radius: 5px;
+    margin-bottom: 0;
+    margin-left: 15px;
 }
