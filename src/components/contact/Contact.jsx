@@ -21,15 +21,15 @@ const Contact = () => {
 
     const[alternar, setAleternar] = useState(false)
     const abrirNumero = () =>{
-    const numeros = document.getElementById('numeros')
-    if (alternar == true) {
-        numeros.style.display ="none"
-        setAleternar(false)
-    }else{
-        numeros.style.display ="block"
-        setAleternar(true)
+        const numeros = document.getElementById('numeros')
+        if (alternar == true) {
+            numeros.style.display ="none"
+            setAleternar(false)
+        }else{
+            numeros.style.display ="block"
+            setAleternar(true)
+        }
     }
-}
 
 
     return (
