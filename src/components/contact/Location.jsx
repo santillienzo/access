@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Title from '../1-microComponents/title/Title'
 import Map from './Map';
 import './location.css'
@@ -6,25 +6,42 @@ import './location.css'
 
 
 
-
-
-
 const Location = () => {
+    const [idSucursal, setSucursal] = useState("Rivadavia");
+    const [direccion, setDireccion] = useState("W.Nuñez 597")
+
+    const elegirSucursal = (e)=>{
+        const sucursal = e.target.value;
+        setSucursal(sucursal);
+        console.log(sucursal);
+    }
+    useEffect(()=>{
+        if (idSucursal == "Rivadavia") {
+            setDireccion("W.Nuñez 597")
+        } else if(idSucursal == "Junín"){
+            setDireccion("Av. Mitre 8")
+        } else{
+            setDireccion("25 de Mayo 252")
+            
+        }
+    })
+
+
     return (
-        <div>
+        <div className="location_container">
             <Title titleText="Ubicación" id="contacto"/>
             <div className="map-container">
                 <p className="map-text">Elije la sucursal:</p>
-                <select>
+                <select name="departamento" id="departamento" onClick={elegirSucursal}>
                     <option>Rivadavia</option>
                     <option>Junín</option>
                     <option>San Martín</option>
                 </select>
-                <p>W.Nuñez 597</p>
-                <Map
-                    latitud={-33.1960507977805}
-                    longitud={-68.46413078725658}
-                />
+                <p>{direccion}</p>
+                <Map/>
+
+                
+                
                 
             </div>
         </div>

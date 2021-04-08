@@ -9,7 +9,7 @@
     object-fit: cover;
 }
 
-..responsive-aviso-container {
+.responsive-aviso-container {
     display: none;
 }
 
@@ -41,14 +41,16 @@
     }
 
     .responsive-aviso {
-        background-color: rgba(255, 255, 255, 0.39);
+        font-family: 'Montserrat', sans-serif;
+        color: #000;
+        background-color: rgba(255, 255, 255, 0.753);
         font-size: 33px;
         width: 200px;
         text-align: center;
         padding-top: 15px;
-        border-radius: 15px;
-        -webkit-animation: pulsate-fwd 1.5s ease-in-out infinite both;
-        animation: pulsate-fwd 1.5s ease-in-out infinite both;
+        border-radius: 10px;
+        -webkit-animation: pulsate-fwd 1.8s ease-in-out infinite both;
+        animation: pulsate-fwd 1.8s ease-in-out infinite both;
     }
 
     .responsive-aviso p {
@@ -98,4 +100,21 @@
         }
     }
 
+}
+
+@media screen and (max-width: 550px){
+    .home {
+        max-width: 100vw;
+        max-height: 40vh;
+    }
+    
+    .home img {
+        width: 100%;
+        height: 40vh;
+        object-fit: cover;
+    }
+    
+    .responsive-aviso-container {
+        display: none;
+    }
 }

@@ -90,3 +90,39 @@
     transform: rotate(2deg);
     }
 }
+
+
+
+@media screen and (max-width: 768px){
+    .title-container h3{
+        font-size: 45px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .title-container{
+        margin-left: 30px;
+        margin-top: 15px;
+        position: relative;
+        width: min-content;
+    }
+
+    .title-container h3{
+        font-size: 35px;
+    }
+    
+    .title-container::before{
+        content: ' ';
+        height: 120%;
+        left: 0;
+        right: 0;
+        width: 65%;
+        position: absolute;
+        border-bottom: 2px solid #D7BA55;
+    }
+    
+    .title-container:hover{
+        -webkit-animation: shake-left 0.7s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+        animation: shake-left 0.7s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+    }
+}

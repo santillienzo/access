@@ -9,8 +9,8 @@
 
 .hexagon{
     position: inherit;
-    width: 350px;
-    height: 400px;
+    width: 306px;
+    height: 350px;
     margin: 50px 20px 70px;
 }
 
@@ -85,4 +85,19 @@
     opacity: 1;
 }
 
+
+@media screen and (max-width: 768px) and (min-width: 550px){
+    .hexagon{
+        width: 481px;
+        height: 550px;
+    }
+
+    .shape h3{
+        font-size: 50px;
+    }
+
+    .shape .hexagon-content{
+        font-size: 25px;
+    }
+}
 

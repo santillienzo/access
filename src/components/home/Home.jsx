@@ -8,7 +8,9 @@ const Home = () => {
     //Función para desaparecer el aviso
     window.addEventListener("scroll",function(){
         const deslizar = document.querySelector(".responsive-aviso-container");
-        deslizar.classList.toggle("hide",window.scrollY > 750);
+        if(deslizar != null){
+            deslizar.classList.toggle("hide",window.scrollY > 750);
+        }
     });
 
 

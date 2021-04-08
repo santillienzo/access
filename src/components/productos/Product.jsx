@@ -1,12 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './product.css';
 import Title from '../1-microComponents/title/Title'
 
 import pcGamer from '../../assets/product/banner/pcgamer.png';
 
 
-
+//Banner de producto
 const ProdPrincipal = () =>{
+
     return(
         <div className="prod_principal-container">
             <div className="text_prod_prin-container">
@@ -28,17 +29,33 @@ const ProdPrincipal = () =>{
     )
 };
 
+//Productos
+const objetoPc = {
+    imagen: pcGamer,
+    nombre: "NOGA STORMER",
+    descripcion: "Poderoso Gabinete Gamer con 3 Coolers con LEDS rojos",
+    precio: "95.000",
+    tipo: "pc"
+}
+const objetoImpresoras = {
+    imagen: pcGamer,
+    nombre: "Impresora",
+    descripcion: "Impresora",
+    precio: "95.000",
+    tipo: "impresora"
+}
+const Producto = (props) => {
+    
 
-const Producto = () => {
     return(
         <div className="producto">
             <div className="card" >
-                <img src={pcGamer} className="card-img-top img-carta" alt="..." />
+                <img src={props.imagen} className="card-img-top img-carta" alt="..." />
                 <div className="card-body">
-                    <h5 className="card-title">NOGA STORMER</h5>
-                    <p className="card-text texto-carta">Poderoso Gabinete Gamer con 3 Coolers con LEDS rojos.</p>
-                    <a href="#" className="btn btn-primary">Encargar</a>
-                    <p className="pricing_card ">$95.000</p>
+                    <h5 className="card-title">{props.nombre}</h5>
+                    <p className="card-text texto-carta">{props.descripcion}</p>
+                    <a href="#" className="btn btn-primary btn_carta">Encargar</a>
+                    <p className="pricing_card ">${props.precio}</p>
                 </div>
             </div>
         </div>
@@ -47,16 +64,47 @@ const Producto = () => {
 
 
 
+//Componente principal
+const categorias = [
+    {
+        "nombre" : "Todo",
+        "articulos" : [objetoPc,objetoImpresoras]
+    },
+    {
+        "nombre" : "Pc",
+        "articulos" : [objetoPc]
+    },
+    {
+        "nombre" : "Impresoras",
+        "articulos" : [objetoImpresoras]
+    }
+]
+
 
 const Product = () => {
+
+    const [idArticulos, setIdArticulos] = useState(0);
+
+    const handlerCargarArticulos = (e) =>{
+        const option = e.target.value;
+        setIdArticulos(option)
+        console.log(option)
+    } 
+
     return (
         <div>
             <ProdPrincipal/>
             <div className="productos-container">
                 <Title titleText="Productos"/>
                 <div className="stock-container">
-                    <select className="form-select">
-                        <option>Todo</option>
+                    <select className="form-select" name="categorias" id="selCategorias" onClick={handlerCargarArticulos}>
+                        {
+                            categorias.map((item, i)=>(
+                                <option value={i} key={i}>{item.nombre}</option>
+                            ))
+                        }
+                        
+                        {/* <option>Todo</option>
                         <option>Pc</option>
                         <option>Impresoras</option>
                         <option>Video proyectores</option>
@@ -67,12 +115,20 @@ const Product = () => {
                         <option>Conectividad</option>
                         <option>Almacenamiento</option>
                         <option>Tintas</option>
-                        <option>Accesorios</option>
+                        <option>Accesorios</option> */}
                     </select>
                     <div className="tabla-productos">
-                        <Producto/>
-                        <Producto/>
-                        <Producto/>
+                    {
+                        categorias[idArticulos].articulos.map((item,i)=>(
+                            <Producto
+                                key={i}
+                                imagen={item.imagen}
+                                nombre={item.nombre}
+                                descripcion={item.descripcion}
+                                precio={item.precio}
+                            />
+                        ))
+                    }
                     </div>
                 </div>
             </div>

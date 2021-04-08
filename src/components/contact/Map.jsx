@@ -4,35 +4,87 @@ import GoogleMaps from 'simple-react-google-maps';
 import crendentials from '../../config/credentials'
 let key = crendentials.mapskey;
 
-const Map = (props) => {
+const Map = () => {
+    let celular = false;
 
-    const latitud = parseFloat(props.latitud)
-    const longitud = parseFloat(props.longitud)
+    if (window.screen.width <= 550) {
+        celular = true;
+    }
+    else if(window.screen.width >= 550){
+        celular = false;
+    }
 
     return (
         <div>
-            <GoogleMaps
-                apiKey={key}
-                style={{
-                    display: "block",
-                    margin:"auto",
-                    marginBottom:"25px",
-                    position: "relative",
-                    height: "500px",
-                    width:"500px"
-                    }}
-                zoom={15}
-                center={{
-                    lat: latitud,
-                    lng: longitud
-                }}
-                markers={[
-                    {
-                    lat: latitud,
-                    lng: longitud
-                    }
-                ]}
-            />
+            {
+                celular ? 
+                (
+                    <GoogleMaps
+                        apiKey={key}
+                        style={{
+                            display: "block",
+                            margin:"auto",
+                            marginBottom:"25px",
+                            position: "relative",
+                            height: "450px",
+                            width:"250px"
+                            }}
+                        zoom={11}
+                        center={{
+                            lat: -33.143122960923655,
+                            lng: -68.48505867957421
+                        }}
+                        markers={[
+                            {
+                            lat: -33.1960507977805,
+                            lng: -68.46413078725658
+                            },
+                            {
+                            lat: -33.143122960923655,
+                            lng: -68.48505867957421
+                            },
+                            {
+                            lat: -33.08589562050442,
+                            lng: -68.47415517625076
+                            }
+                        ]}
+                    />
+                )
+                :
+                (
+                    <GoogleMaps
+                        apiKey={key}
+                        style={{
+                            display: "block",
+                            margin:"auto",
+                            marginBottom:"25px",
+                            position: "relative",
+                            height: "500px",
+                            width:"500px"
+                            }}
+                        zoom={11}
+                        center={{
+                            lat: -33.143122960923655,
+                            lng: -68.48505867957421
+                        }}
+                        markers={[
+                            {
+                            lat: -33.1960507977805,
+                            lng: -68.46413078725658
+                            },
+                            {
+                            lat: -33.143122960923655,
+                            lng: -68.48505867957421
+                            },
+                            {
+                            lat: -33.08589562050442,
+                            lng: -68.47415517625076
+                            }
+                        ]}
+                    />
+                )
+            }   
+            
         </div>
     );
 };

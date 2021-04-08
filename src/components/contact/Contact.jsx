@@ -49,7 +49,7 @@ const Contact = () => {
                         icon="fab fa-instagram"
                         link=""
                     />
-                    <li onClick={abrirNumero}>
+                    <li onClick={abrirNumero} className="penta-phone">
                         <div href="#">
                             <i class="fas fa-phone"></i>
                         </div>
