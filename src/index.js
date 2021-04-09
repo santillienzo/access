@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App.jsx';
+import './fire_config'
 
 ReactDOM.render(
   <React.StrictMode>

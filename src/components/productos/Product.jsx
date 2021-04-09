@@ -1,11 +1,13 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './product.css';
-import Title from '../1-microComponents/title/Title'
+import {db} from '../../fire_config';
 
+import Title from '../1-microComponents/title/Title'
 import pcGamer from '../../assets/product/banner/pcgamer.png';
 
+//Subcomponentes
 
-//Banner de producto
+//Banner
 const ProdPrincipal = () =>{
 
     return(
@@ -29,21 +31,7 @@ const ProdPrincipal = () =>{
     )
 };
 
-//Productos
-const objetoPc = {
-    imagen: pcGamer,
-    nombre: "NOGA STORMER",
-    descripcion: "Poderoso Gabinete Gamer con 3 Coolers con LEDS rojos",
-    precio: "95.000",
-    tipo: "pc"
-}
-const objetoImpresoras = {
-    imagen: pcGamer,
-    nombre: "Impresora",
-    descripcion: "Impresora",
-    precio: "95.000",
-    tipo: "impresora"
-}
+//Producto
 const Producto = (props) => {
     
 
@@ -62,35 +50,104 @@ const Producto = (props) => {
     )
 }
 
-
-
 //Componente principal
-const categorias = [
-    {
-        "nombre" : "Todo",
-        "articulos" : [objetoPc,objetoImpresoras]
-    },
-    {
-        "nombre" : "Pc",
-        "articulos" : [objetoPc]
-    },
-    {
-        "nombre" : "Impresoras",
-        "articulos" : [objetoImpresoras]
-    }
-]
-
-
 const Product = () => {
-
     const [idArticulos, setIdArticulos] = useState(0);
+    const [objetosPc, setObjetosPc] = useState([])
+    const [objetosImpresoras, setObjetosImpresoras] = useState([])
+    const [objetosProye, setObjetosProye] = useState([])
+    const [objetosSonido, setObjetosSonido] = useState([])
+    const [objetosCcTv, setObjetosCcTv] = useState([])
+    const [objetosNote, setObjetosNote] = useState([])
+    const [objetosMonit, setObjetosMonit] = useState([])
+    const [objetosConect, setObjetosConect] = useState([])
+    const [objetosAlmacen, setObjetosAlmacen] = useState([])
+    const [objetosTintas, setObjetosTintas] = useState([])
+    const [objetosAcces, setObjetosAcces] = useState([])
+    const [objetosTodo, setObjetosTodo] = useState([])
 
+
+    //Traemos todos los objetos de la base de datos
+    useEffect(()=>{
+        const getObjetos = async(campo,tipo, callback)=>{
+            const {docs} = await db.collection('inventario').where(campo, "==", tipo).get();
+            const array = docs.map(item=>({id:item.id, ...item.data() }));
+            callback(array)
+        }
+        getObjetos("tipo","pc", setObjetosPc)
+        getObjetos("tipo","impresora", setObjetosImpresoras)
+        getObjetos("tipo","proyector", setObjetosProye)
+        getObjetos("tipo","sonido", setObjetosSonido)
+        getObjetos("tipo","cc tv", setObjetosCcTv)
+        getObjetos("tipo","portatil", setObjetosNote)
+        getObjetos("tipo","monitor", setObjetosMonit)
+        getObjetos("tipo","conectividad", setObjetosConect)
+        getObjetos("tipo","almacenamiento", setObjetosAlmacen)
+        getObjetos("tipo","tintas", setObjetosTintas)
+        getObjetos("tipo","accesorio", setObjetosAcces)
+        getObjetos("estado",true, setObjetosTodo)
+    },[])
+    
+    //Interactuamos con el objeto Select
     const handlerCargarArticulos = (e) =>{
         const option = e.target.value;
         setIdArticulos(option)
         console.log(option)
     } 
 
+    //Definimos las categorías
+    const categorias = [
+        {
+            "nombre" : "Todo",
+            "articulos" : objetosTodo
+        },
+        {
+            "nombre" : "Pc",
+            "articulos" : objetosPc
+        },
+        {
+            "nombre" : "Impresoras",
+            "articulos" : objetosImpresoras
+        },
+        {
+            "nombre" : "Video Proyectores",
+            "articulos" : objetosProye
+        },
+        {
+            "nombre" : "Equipos de sonido",
+            "articulos" : objetosSonido
+        },
+        {
+            "nombre" : "Cc Tv",
+            "articulos" : objetosCcTv
+        },
+        {
+            "nombre" : "Computadoras portátiles",
+            "articulos" : objetosNote
+        },
+        {
+            "nombre" : "Monitores",
+            "articulos" : objetosMonit
+        },
+        {
+            "nombre" : "Conectividad",
+            "articulos" : objetosConect
+        },
+        {
+            "nombre" : "Almacenamiento",
+            "articulos" : objetosAlmacen
+        },
+        {
+            "nombre" : "Tintas",
+            "articulos" : objetosTintas
+        },
+        {
+            "nombre" : "Accesorios",
+            "articulos" : objetosAcces
+        },
+    ]
+
+    //Componente Madre
     return (
         <div>
             <ProdPrincipal/>
@@ -104,18 +161,6 @@ const Product = () => {
                             ))
                         }
                         
-                        {/* <option>Todo</option>
-                        <option>Pc</option>
-                        <option>Impresoras</option>
-                        <option>Video proyectores</option>
-                        <option>Equipos de sonido</option>
-                        <option>Cc tv</option>
-                        <option>Notebooks | Netbooks</option>
-                        <option>Monitores</option>
-                        <option>Conectividad</option>
-                        <option>Almacenamiento</option>
-                        <option>Tintas</option>
-                        <option>Accesorios</option> */}
                     </select>
                     <div className="tabla-productos">
                     {
@@ -137,3 +182,13 @@ const Product = () => {
 };
 
 export default Product;
+
+
+db.collection("inventario").add({
+    descripcion: "Accesorios",
+    estado: true,
+    imagen: pcGamer,
+    nombre: "Accesorio",
+    precio: "10.000",
+    tipo: "accesorio"
+})
