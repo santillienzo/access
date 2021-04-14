@@ -22,10 +22,13 @@ const Contact = () => {
     const[alternar, setAleternar] = useState(false)
     const abrirNumero = () =>{
         const numeros = document.getElementById('numeros')
+        const aviso = document.getElementById('aviso_click')
         if (alternar == true) {
             numeros.style.display ="none"
+            aviso.style.display= "block";
             setAleternar(false)
         }else{
+            aviso.style.display= "none";
             numeros.style.display ="block"
             setAleternar(true)
         }
@@ -55,6 +58,9 @@ const Contact = () => {
                         </div>
                     </li>
                 </ul>
+                <div className="aviso_click" id="aviso_click">
+                    <p><span>Clickea</span> alguno de los íconos para más información</p>
+                </div>
                 <div className="cel-container container" id="numeros">
                     <div className="row">
                         <div className="col-4 dep">Rivadavia</div>

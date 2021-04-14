@@ -1,54 +1,13 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, Suspense, lazy} from 'react';
 import './product.css';
-import {db} from '../../fire_config';
+import {db, storage} from '../../fire_config';
 
+import imagenes from '../../assets/product/imagenes'
 import Title from '../1-microComponents/title/Title'
-import pcGamer from '../../assets/product/banner/pcgamer.png';
+import Producto from './producto/Producto';
 
-//Subcomponentes
+const Banner = lazy(()=>import('./banner/Banner'));
 
-//Banner
-const ProdPrincipal = () =>{
-
-    return(
-        <div className="prod_principal-container">
-            <div className="text_prod_prin-container">
-                <div>
-                    <h3>NOGA STORMER</h3>
-                    <p>Poderoso Gabinete Gamer con 3 Coolers con LEDS rojos.
-                    Contiene 1 Puerto USB 3.0, 2 Puertos USB 2.0 y conexiones miniplug para Auriculares y Mic. <br/>
-                    Posee 2 paneles de vidrio tonalizados. <br/>
-                    Incluye Fuente de Alimentación de 600W. 
-                    </p>
-                </div>
-            </div>
-            <div className="img_prod_prin-container">
-                <div>
-                    <img src={pcGamer}/>
-                </div>
-            </div>
-        </div>
-    )
-};
-
-//Producto
-const Producto = (props) => {
-    
-
-    return(
-        <div className="producto">
-            <div className="card" >
-                <img src={props.imagen} className="card-img-top img-carta" alt="..." />
-                <div className="card-body">
-                    <h5 className="card-title">{props.nombre}</h5>
-                    <p className="card-text texto-carta">{props.descripcion}</p>
-                    <a href="#" className="btn btn-primary btn_carta">Encargar</a>
-                    <p className="pricing_card ">${props.precio}</p>
-                </div>
-            </div>
-        </div>
-    )
-}
 
 //Componente principal
 const Product = () => {
@@ -78,7 +37,7 @@ const Product = () => {
         getObjetos("tipo","impresora", setObjetosImpresoras)
         getObjetos("tipo","proyector", setObjetosProye)
         getObjetos("tipo","sonido", setObjetosSonido)
-        getObjetos("tipo","cc tv", setObjetosCcTv)
+        getObjetos("tipo","cctv", setObjetosCcTv)
         getObjetos("tipo","portatil", setObjetosNote)
         getObjetos("tipo","monitor", setObjetosMonit)
         getObjetos("tipo","conectividad", setObjetosConect)
@@ -147,10 +106,13 @@ const Product = () => {
         },
     ]
 
+    
     //Componente Madre
     return (
         <div>
-            <ProdPrincipal/>
+            <Suspense fallback={<h1>cargando...</h1>}>
+                <Banner/>
+            </Suspense>
             <div className="productos-container">
                 <Title titleText="Productos"/>
                 <div className="stock-container">
@@ -164,13 +126,15 @@ const Product = () => {
                     </select>
                     <div className="tabla-productos">
                     {
-                        categorias[idArticulos].articulos.map((item,i)=>(
+                        categorias[idArticulos].articulos.map((item,i)=>
+                        (
                             <Producto
                                 key={i}
-                                imagen={item.imagen}
-                                nombre={item.nombre}
-                                descripcion={item.descripcion}
-                                precio={item.precio}
+                                imagen={item.image}
+                                nombre={item.name}
+                                descripcion={item.description}
+                                precio={item.price}
+                                
                             />
                         ))
                     }
@@ -182,13 +146,3 @@ const Product = () => {
 };
 
 export default Product;
-
-
-db.collection("inventario").add({
-    descripcion: "Accesorios",
-    estado: true,
-    imagen: pcGamer,
-    nombre: "Accesorio",
-    precio: "10.000",
-    tipo: "accesorio"
-})

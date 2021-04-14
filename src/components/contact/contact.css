@@ -13,6 +13,7 @@
     display: flex;
     justify-content: center;
     margin-top: 35px;
+    padding: 0;
 }
 
 .social-container li{
@@ -106,6 +107,18 @@
 
 .dep{
     font-weight: 500;
+}
+
+.aviso_click{
+    text-align: center;
+    margin-top: 45px;
+}
+.aviso_click p{
+    margin: 0;
+}
+
+.aviso_click p span{
+    border-bottom: 1px solid #ccc;
 }
 
 

@@ -46,9 +46,6 @@ const Nav = () => {
                         <li className="nav-item">
                             <Link to="/#contacto" className="nav-link">Contacto</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link to="/noticias" className="nav-link">Noticias</Link>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -81,7 +78,6 @@ const Nav = () => {
                     </ul>
                 </div>
             </div>
-            
         </header>
     );
 };
