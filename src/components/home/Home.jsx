@@ -15,8 +15,11 @@ const Home = () => {
 
 
     return (
-        <div className="home">
+        <div className="home" id="inicio">
             <img src={banner}/>
+            <div className="text-banner-container">
+                <p className="text-banner">Bienvenidos a ACCESS <br/> <span>Líderes en tecnología</span></p>
+            </div>
             <div className="responsive-aviso-container">
                 <div className="responsive-aviso">
                     <p>Desliza</p>

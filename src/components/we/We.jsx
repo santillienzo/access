@@ -25,8 +25,8 @@ const Hexagon = (props) =>{
 
 const We = () => {
     return (
-        <div>
-            <Title titleText="Nosotros"/>
+        <div className="we-container">
+            <Title titleText="Nosotros" id={"nosotros"}/>
             <div className="hexagon-container">
                 <Hexagon
                     imgName={team}

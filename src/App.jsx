@@ -35,11 +35,7 @@ function App() {
           <Route path="/productos">
             <Product/>
           </Route>
-
-          <Route path="/noticias">
-
-          </Route>
-
+          
         </Switch>
       </Router>
 

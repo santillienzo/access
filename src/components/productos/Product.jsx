@@ -1,12 +1,10 @@
-import React, {useState, useEffect, Suspense, lazy} from 'react';
+import React, {useState, useEffect} from 'react';
 import './product.css';
-import {db, storage} from '../../fire_config';
+import {db} from '../../fire_config';
 
-import imagenes from '../../assets/product/imagenes'
 import Title from '../1-microComponents/title/Title'
 import Producto from './producto/Producto';
-
-const Banner = lazy(()=>import('./banner/Banner'));
+import Banner from './banner/Banner'
 
 
 //Componente principal
@@ -30,7 +28,8 @@ const Product = () => {
     useEffect(()=>{
         const getObjetos = async(campo,tipo, callback)=>{
             const {docs} = await db.collection('inventario').where(campo, "==", tipo).get();
-            const array = docs.map(item=>({id:item.id, ...item.data() }));
+            const array = docs.map(item=>({id:item.id, ...item.data() 
+            }));
             callback(array)
         }
         getObjetos("tipo","pc", setObjetosPc)
@@ -50,8 +49,8 @@ const Product = () => {
     //Interactuamos con el objeto Select
     const handlerCargarArticulos = (e) =>{
         const option = e.target.value;
+        console.log(e.target.value)
         setIdArticulos(option)
-        console.log(option)
     } 
 
     //Definimos las categorías
@@ -110,11 +109,9 @@ const Product = () => {
     //Componente Madre
     return (
         <div>
-            <Suspense fallback={<h1>cargando...</h1>}>
-                <Banner/>
-            </Suspense>
+            <Banner/>
             <div className="productos-container">
-                <Title titleText="Productos"/>
+                <Title titleText="Productos" id={"productos"}/>
                 <div className="stock-container">
                     <select className="form-select" name="categorias" id="selCategorias" onClick={handlerCargarArticulos}>
                         {

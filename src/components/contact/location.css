@@ -1,6 +1,7 @@
 .map-container{
     width: min-content;
     margin: auto;
+    background-color: #fff;
 }
 
 .map-container select{
@@ -28,7 +29,7 @@
 
 @media screen and (max-width: 550px){
     .location_container{
-        margin-top: 90px;
+        margin-top: 190px;
     }
     
     .map-container{

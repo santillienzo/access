@@ -1,6 +1,6 @@
 header.container {
     margin-top: 15px;
-    background-color: #41256F;
+    background-color: #41256fad;
     border-radius: 15px;
     position: fixed;
     left: 0;
@@ -9,7 +9,15 @@ header.container {
 }
 
 .header_img-container img {
-    width: 110%;
+    width: 100%;
+}
+
+
+.non-selectable {
+    -moz-user-select: none; 
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
 }
 
 .nav-link {
@@ -22,6 +30,9 @@ header.container {
 
 .nav-responsive {
     display: none;
+}
+.nav-item{
+    cursor: pointer;
 }
 
 

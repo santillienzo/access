@@ -21,6 +21,10 @@
     text-align: center;
 }
 
+option{
+    position: absolute;
+}
+
 
 @media screen and (max-width: 768px) and (min-width: 550px){
     .stock-container{

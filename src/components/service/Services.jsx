@@ -24,7 +24,7 @@ const Service = (props) =>{
 const Services = () => {
     return (
         <div>
-            <Title titleText="Servicios"/>
+            <Title titleText="Servicios" id={"servicios"}/>
             <div className="services-container">
                 <Service
                     imgService={software}

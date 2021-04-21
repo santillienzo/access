@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import imagenes from '../../../assets/product/imagenes';
 import './banner.css'
 
 
 const Banner = () => {
-    setTimeout(()=>{
+    let [i, setI] = useState(1);
+
+    useEffect(()=>{
         //Definimos los banners
         const banner1 = document.getElementById("banner-1")
         const banner2 = document.getElementById("banner-2")
@@ -42,13 +44,12 @@ const Banner = () => {
         fondo1.style.backgroundColor = fondos[0]
 
 
-        let i = 1;
         const switchBanner = ()=>{
             img2.src = images[i]
             title2.innerHTML = titulos[i]
             texto2.innerHTML = textos[i]
             fondo2.style.backgroundColor = fondos[i]
-
+            // console.log(it)
             //Definimos el indicador actual y manipulamos las clases
             const indicadorActual = indicadores[i]
             Array.from(indicadores).forEach(cir => cir.classList.remove("indi-sel"))
@@ -56,7 +57,8 @@ const Banner = () => {
 
             //
             banner2.classList.add("active")
-            i++
+            setI(i++)
+            console.log(i)
             if (i == indicadores.length) {
                 i = 0
             }
@@ -70,8 +72,10 @@ const Banner = () => {
             },1000)
         }
         
-        window.setInterval(switchBanner,5000)
-    },500)
+        window.setInterval(switchBanner,5000);
+
+    },[])
+    
 
     return (
         <div className="prod_principal-container">
@@ -104,9 +108,9 @@ const Banner = () => {
                 </div>
             </div>
             <div className="indicadores">
-                <img src={imagenes.bannerPcGamer}  alt=""  className="indi"/>
-                <img src={imagenes.bannerMonitor}  alt="" className="indi"/>
-                <img src={imagenes.bannerSonido}  alt="" className="indi"/>
+                <img src={imagenes.bannerPcGamer}  alt=""  className="indi" />
+                <img src={imagenes.bannerMonitor}  alt="" className="indi" />
+                <img src={imagenes.bannerSonido}  alt="" className="indi" />
             </div>
         </div>
     );

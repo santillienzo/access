@@ -2,10 +2,15 @@ import React, {useState}from 'react';
 
 import './nav.css';
 import {
-    Link
+    Link as LinkScroll 
+} from 'react-scroll'
+import {
+    Route,
+    Switch,
+    Link as LinkRecharge 
 } from 'react-router-dom'
 
-import logo from '../../assets/logo_access.png'
+import logo from '../../assets/logo_access2.png'
 
 const Nav = () => {
 
@@ -30,22 +35,45 @@ const Nav = () => {
                     <img src={logo}/>
                 </div>
                 <div className="col-11">
-                    <ul className="nav justify-content-end">
-                        <li className="nav-item">
-                            <Link to="/" className="nav-link" aria-current="page">Inicio</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/#nosotros" className="nav-link">Nosotros</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/#servicios" className="nav-link">Servicios</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/productos" className="nav-link">Productos</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/#contacto" className="nav-link">Contacto</Link>
-                        </li>
+                    <ul className="nav justify-content-end ">
+                            <Switch>
+                                <Route exact path="/">
+                                    <li className="nav-item">
+                                        <LinkScroll to="inicio" className="nav-link .non-selectable" aria-current="page">Inicio</LinkScroll>
+                                    </li>
+                                    <li className="nav-item">
+                                        <LinkScroll to="nosotros" className="nav-link .non-selectable" smooth={true} duration={5}>Nosotros</LinkScroll>
+                                    </li>
+                                    <li className="nav-item">
+                                        <LinkScroll to="servicios" className="nav-link">Servicios</LinkScroll>
+                                    </li>
+                                    <li className="nav-item">
+                                        <LinkRecharge to="/productos" className="nav-link .non-selectable">Productos</LinkRecharge>
+                                    </li>
+                                    <li className="nav-item">
+                                        <LinkScroll to="contacto" className="nav-link .non-selectable">Contacto</LinkScroll>
+                                    </li>
+                                </Route>
+
+                                <Route path="/productos">
+                                    <li className="nav-item">
+                                        <LinkRecharge to="" className="nav-link" aria-current="page">Inicio</LinkRecharge>
+                                    </li>
+                                    <li className="nav-item">
+                                        <LinkRecharge to="" className="nav-link">Nosotros</LinkRecharge>
+                                    </li>
+                                    <li className="nav-item">
+                                        <LinkRecharge to="" className="nav-link">Servicios</LinkRecharge>
+                                    </li>
+                                    <li className="nav-item">
+                                        <LinkScroll to="/productos" className="nav-link">Productos</LinkScroll>
+                                    </li>
+                                    <li className="nav-item">
+                                        <LinkRecharge to="" className="nav-link">Contacto</LinkRecharge>
+                                    </li>
+                                </Route>
+                            </Switch>
+                        
                     </ul>
                 </div>
             </div>
@@ -57,24 +85,43 @@ const Nav = () => {
                 </div>
                 <div className="links-responsive-container" id="links-responsive">
                     <ul className="links-responsive">
-                        <li>
-                            <Link to="/" className="nav-link" aria-current="page">Inicio</Link>
-                        </li>
-                        <li>
-                            <Link to="/#nosotros" className="nav-link">Nosotros</Link>
-                        </li>
-                        <li>
-                            <Link to="/#servicios" className="nav-link">Servicios</Link>
-                        </li>
-                        <li>
-                            <Link to="/productos" className="nav-link">Productos</Link>
-                        </li>
-                        <li>
-                            <Link to="/#contacto" className="nav-link">Contacto</Link>
-                        </li>
-                        <li>
-                            <Link to="/noticias" className="nav-link">Noticias</Link>
-                        </li>
+                    <Switch>
+                            <Route exact path="/">
+                                <li className="nav-item">
+                                    <LinkScroll to="inicio" className="nav-link" aria-current="page">Inicio</LinkScroll>
+                                </li>
+                                <li className="nav-item">
+                                    <LinkScroll to="nosotros" className="nav-link" smooth={true} duration={5}>Nosotros</LinkScroll>
+                                </li>
+                                <li className="nav-item">
+                                    <LinkScroll to="servicios" className="nav-link">Servicios</LinkScroll>
+                                </li>
+                                <li className="nav-item">
+                                    <LinkRecharge to="/productos" className="nav-link">Productos</LinkRecharge>
+                                </li>
+                                <li className="nav-item">
+                                    <LinkScroll to="contacto" className="nav-link">Contacto</LinkScroll>
+                                </li>
+                            </Route>
+
+                            <Route path="/productos">
+                                <li className="nav-item">
+                                    <LinkRecharge to="" className="nav-link" aria-current="page">Inicio</LinkRecharge>
+                                </li>
+                                <li className="nav-item">
+                                    <LinkRecharge to="" className="nav-link">Nosotros</LinkRecharge>
+                                </li>
+                                <li className="nav-item">
+                                    <LinkRecharge to="" className="nav-link">Servicios</LinkRecharge>
+                                </li>
+                                <li className="nav-item">
+                                    <LinkScroll to="/productos" className="nav-link">Productos</LinkScroll>
+                                </li>
+                                <li className="nav-item">
+                                    <LinkRecharge to="" className="nav-link">Contacto</LinkRecharge>
+                                </li>
+                            </Route>
+                        </Switch>
                     </ul>
                 </div>
             </div>
