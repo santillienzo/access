@@ -14,15 +14,15 @@ import logo from '../../assets/logo_access2.png'
 
 const Nav = () => {
 
-    const[alternar, setAleternar] = useState(false)
+    const[alternar, setAlternar] = useState(false)
     const abrirLinks = () =>{
         const links = document.getElementById('links-responsive')
         if (alternar == true) {
             links.style.display ="none"
-            setAleternar(false)
+            setAlternar(false)
         }else{
             links.style.display ="flex"
-            setAleternar(true)
+            setAlternar(true)
         }
     }
 

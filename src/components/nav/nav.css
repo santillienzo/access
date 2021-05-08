@@ -5,7 +5,7 @@ header.container {
     position: fixed;
     left: 0;
     right: 0;
-    z-index: 10000000000000000000000000000000000000000000000;
+    z-index: 10000 !important;
 }
 
 .header_img-container img {

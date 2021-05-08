@@ -25,6 +25,7 @@ function App() {
         <Switch>
 
           <Route exact path="/">
+            <Alert/>
             <Home/>
             <We/>
             <Services/>
@@ -47,3 +48,24 @@ function App() {
 }
 
 export default App;
+
+
+const Alert = ()=>{
+
+  const desactivarAlerta = ()=>{
+    const alerta = document.getElementById('alerta')
+
+    alerta.style.display="none"
+  }
+
+
+  return(
+    <div className="alert-container" id="alerta">
+      <div className="alert-card">
+        <div className="alert-icon" onClick={desactivarAlerta}><i class="far fa-times-circle"></i></div>
+        <div className="atencion">ATENCIÓN</div>
+        <p>Esta página es un proyecto propio, por lo que Access queda totalmente desligada de este diseño.</p>
+      </div>
+    </div>
+  )
+}

@@ -102,7 +102,7 @@ const Product = () => {
         {
             "nombre" : "Accesorios",
             "articulos" : objetosAcces
-        },
+        }
     ]
 
     
